@@ -30,31 +30,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mlambo.pairs.ui.theme.PairsTheme
 
+// Cite https://developer.android.com/develop/ui/compose/tutorial
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             PairsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Column(modifier = Modifier.padding(top = 24.dp)) {
+                    Pairs()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
+// Cite https://stackoverflow.com/questions/16120697/kotlin-how-to-pass-a-function-as-parameter-to-another
+// Cite https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenuItem(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.MenuItemColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)
 @Composable
 fun SelectFileNames(selectedOption: String,
                     onOptionSelected: (String) -> Unit) {
@@ -120,13 +113,5 @@ fun Pairs() {
 fun PairsPreview() {
     PairsTheme {
         Pairs()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PairsTheme {
-        Greeting("Android")
     }
 }
