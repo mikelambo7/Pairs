@@ -26,7 +26,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,7 +35,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,7 +43,7 @@ import androidx.compose.ui.unit.sp
 import com.mlambo.pairs.ui.theme.PairsTheme
 import java.io.InputStream
 
-// Cite https://developer.android.com/develop/ui/compose/tutorial
+// Android compose tutorial  :   Jetpack Compose  :   android developers. Android Developers. (n.d.). https://developer.android.com/develop/ui/compose/tutorial
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +63,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Cite https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenuItem(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.MenuItemColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)
+// Androidx.compose.material3  :   android developers. Android Developers. (n.d.-b). https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#DropdownMenuItem(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.MenuItemColors,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource)
 @Composable
 fun SelectFileNames(
     selectedOption: String,
@@ -161,7 +159,8 @@ fun Pairs() {
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Row {
-                        Text("Email",
+                        Text(
+                            "Email",
                             modifier = Modifier.weight(1f),
                             fontWeight = FontWeight.Bold
                         )
@@ -217,7 +216,10 @@ fun Pairs() {
 
                     OutlinedTextField(
                         value = x,
-                        onValueChange = { x = it },
+                        onValueChange = {
+                            x = it
+                            generatePairs = false
+                        },
                         label = { Text("Enter a value for X:") },
                         maxLines = 1,
                         modifier = Modifier.fillMaxWidth()
@@ -225,7 +227,10 @@ fun Pairs() {
 
                     OutlinedTextField(
                         value = y,
-                        onValueChange = { y = it },
+                        onValueChange = {
+                            y = it
+                            generatePairs = false
+                        },
                         label = { Text("Enter a value for Y:") },
                         maxLines = 1,
                         modifier = Modifier.fillMaxWidth()
@@ -248,7 +253,7 @@ fun Pairs() {
     }
 }
 
-// Cite https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int-or-null.html
+// Tointornull - Kotlin programming language. Kotlin. (n.d.). https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int-or-null.html
 @Composable
 fun GeneratedPairs(people: List<Person>, x: TextFieldValue, y: TextFieldValue) {
     val numOfSimilar = x.text.toIntOrNull() ?: 0
@@ -278,7 +283,7 @@ fun GeneratedPairs(people: List<Person>, x: TextFieldValue, y: TextFieldValue) {
     }
 }
 
-// Cite https://kotlinlang.org/docs/collection-parts.html#take-and-drop
+// Retrieve collection parts: Kotlin. Kotlin Help. (n.d.). https://kotlinlang.org/docs/collection-parts.html#take-and-drop
 fun similarPairs(
     people: List<Person>,
     x: Int,
@@ -303,8 +308,7 @@ fun similarPairs(
     return pairs
 }
 
-// Cite https://hyperskill.org/learn/step/6351#readlines
-// Cite https://www.geeksforgeeks.org/read-from-files-using-inputreader-in-kotlin/
+// GeeksforGeeks. (2022, March 13). Read from files using InputReader in Kotlin. https://www.geeksforgeeks.org/read-from-files-using-inputreader-in-kotlin/
 fun generatedPeople(context: Context, fileName: String): List<Person> {
     val people = mutableListOf<Person>()
 
