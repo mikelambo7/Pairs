@@ -3,14 +3,14 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/app/src/main/java/com/mlambo/pairs/People.csv">
+        <entry key="/app/src/main/assets/People.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/app/src/main/java/com/mlambo/pairs/People2.csv">
+        <entry key="/app/src/main/assets/People2.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
